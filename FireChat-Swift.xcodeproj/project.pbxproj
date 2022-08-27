@@ -8,22 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		C4BC91BB28B9D8E900BDCD81 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BC91BA28B9D8E900BDCD81 /* AppDelegate.swift */; };
-		C4BC91BD28B9D8E900BDCD81 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BC91BC28B9D8E900BDCD81 /* SceneDelegate.swift */; };
-		C4BC91BF28B9D8E900BDCD81 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BC91BE28B9D8E900BDCD81 /* ViewController.swift */; };
-		C4BC91C228B9D8E900BDCD81 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4BC91C028B9D8E900BDCD81 /* Main.storyboard */; };
 		C4BC91C428B9D8ED00BDCD81 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4BC91C328B9D8ED00BDCD81 /* Assets.xcassets */; };
 		C4BC91C728B9D8ED00BDCD81 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4BC91C528B9D8ED00BDCD81 /* LaunchScreen.storyboard */; };
+		C4BC91D628B9DA3A00BDCD81 /* ConversationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BC91D528B9DA3A00BDCD81 /* ConversationsController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C4BC91B728B9D8E900BDCD81 /* FireChat-Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FireChat-Swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4BC91BA28B9D8E900BDCD81 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C4BC91BC28B9D8E900BDCD81 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C4BC91BE28B9D8E900BDCD81 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		C4BC91C128B9D8E900BDCD81 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C4BC91C328B9D8ED00BDCD81 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C4BC91C628B9D8ED00BDCD81 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C4BC91C828B9D8ED00BDCD81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C4BC91D528B9DA3A00BDCD81 /* ConversationsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +52,69 @@
 		C4BC91B928B9D8E900BDCD81 /* FireChat-Swift */ = {
 			isa = PBXGroup;
 			children = (
+				C4BC91D328B9D97000BDCD81 /* Model */,
+				C4BC91D228B9D96A00BDCD81 /* View */,
+				C4BC91D128B9D95D00BDCD81 /* ViewModel */,
+				C4BC91D028B9D95500BDCD81 /* Controller */,
+				C4BC91CF28B9D94E00BDCD81 /* API */,
+				C4BC91CE28B9D94200BDCD81 /* Utils */,
+				C4BC91D428B9D97700BDCD81 /* Files */,
+			);
+			path = "FireChat-Swift";
+			sourceTree = "<group>";
+		};
+		C4BC91CE28B9D94200BDCD81 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		C4BC91CF28B9D94E00BDCD81 /* API */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		C4BC91D028B9D95500BDCD81 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C4BC91D528B9DA3A00BDCD81 /* ConversationsController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C4BC91D128B9D95D00BDCD81 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C4BC91D228B9D96A00BDCD81 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C4BC91D328B9D97000BDCD81 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C4BC91D428B9D97700BDCD81 /* Files */ = {
+			isa = PBXGroup;
+			children = (
 				C4BC91BA28B9D8E900BDCD81 /* AppDelegate.swift */,
-				C4BC91BC28B9D8E900BDCD81 /* SceneDelegate.swift */,
-				C4BC91BE28B9D8E900BDCD81 /* ViewController.swift */,
-				C4BC91C028B9D8E900BDCD81 /* Main.storyboard */,
 				C4BC91C328B9D8ED00BDCD81 /* Assets.xcassets */,
 				C4BC91C528B9D8ED00BDCD81 /* LaunchScreen.storyboard */,
 				C4BC91C828B9D8ED00BDCD81 /* Info.plist */,
 			);
-			path = "FireChat-Swift";
+			name = Files;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,7 +177,6 @@
 			files = (
 				C4BC91C728B9D8ED00BDCD81 /* LaunchScreen.storyboard in Resources */,
 				C4BC91C428B9D8ED00BDCD81 /* Assets.xcassets in Resources */,
-				C4BC91C228B9D8E900BDCD81 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,23 +187,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C4BC91BF28B9D8E900BDCD81 /* ViewController.swift in Sources */,
+				C4BC91D628B9DA3A00BDCD81 /* ConversationsController.swift in Sources */,
 				C4BC91BB28B9D8E900BDCD81 /* AppDelegate.swift in Sources */,
-				C4BC91BD28B9D8E900BDCD81 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		C4BC91C028B9D8E900BDCD81 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C4BC91C128B9D8E900BDCD81 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		C4BC91C528B9D8ED00BDCD81 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -292,7 +332,6 @@
 				INFOPLIST_FILE = "FireChat-Swift/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -320,7 +359,6 @@
 				INFOPLIST_FILE = "FireChat-Swift/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
