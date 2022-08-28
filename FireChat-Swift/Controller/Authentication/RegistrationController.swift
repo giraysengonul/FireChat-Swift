@@ -19,7 +19,7 @@ class RegistrationController: UIViewController {
 // MARK: - Helpers
 extension RegistrationController{
     private func style(){
-        
+        view.backgroundColor = .systemBlue
     }
     private func layout(){
         

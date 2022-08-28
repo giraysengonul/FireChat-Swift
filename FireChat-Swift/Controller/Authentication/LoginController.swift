@@ -40,6 +40,17 @@ class LoginController: UIViewController {
         textField.isSecureTextEntry = true
         return textField
     }()
+    private let dontHaveAccountButton: UIButton = {
+        let button = UIButton(type: .system)
+        let attributedTitle = NSMutableAttributedString(string: "Don't have account?", attributes: [.foregroundColor : UIColor.white, .font : UIFont.preferredFont(forTextStyle: .body)])
+        attributedTitle.append(NSAttributedString(string: " Sign Up", attributes: [
+            .foregroundColor: UIColor.white,.font: UIFont.preferredFont(forTextStyle: .title2)
+        ]))
+        button.setAttributedTitle(attributedTitle, for: .normal)
+        button.addTarget(self, action: #selector(handleShowSignUp), for: .touchUpInside)
+        return button
+    }()
+    
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,6 +83,9 @@ extension LoginController{
         //loginButton Style
         loginButton.translatesAutoresizingMaskIntoConstraints = false
         stackView.addArrangedSubview(loginButton)
+        //dontHaveAccountButton Style
+        dontHaveAccountButton.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(dontHaveAccountButton)
     }
     private func layout(){
         //iconImage Layout
@@ -89,6 +103,12 @@ extension LoginController{
         ])
         //emailcontainer Layout
         emailContainerView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        //dontHaveAccountButton Layout
+        NSLayoutConstraint.activate([
+            view.safeAreaLayoutGuide.bottomAnchor.constraint(equalTo: dontHaveAccountButton.bottomAnchor),
+            dontHaveAccountButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 32),
+            view.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: dontHaveAccountButton.trailingAnchor, constant: 32)
+        ])
     }
     
     private func configureGradientLayer(){
@@ -97,5 +117,12 @@ extension LoginController{
         gradient.frame = view.frame
         gradient.locations = [0,1]
         view.layer.addSublayer(gradient)
+    }
+}
+// MARK: - Actions,Selectors
+extension LoginController{
+    @objc func handleShowSignUp(){
+        let controller = RegistrationController()
+        navigationController?.pushViewController(controller, animated: true)
     }
 }
