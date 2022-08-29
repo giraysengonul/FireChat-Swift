@@ -11,6 +11,7 @@
 		C468CAD228BA8B1000867B4E /* RegistrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C468CAD128BA8B1000867B4E /* RegistrationController.swift */; };
 		C4814ECF28BB516300912F8B /* InputContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4814ECE28BB516300912F8B /* InputContainerView.swift */; };
 		C4814ED128BB587300912F8B /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4814ED028BB587300912F8B /* CustomTextField.swift */; };
+		C488050228BD5C000037ABD9 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C488050128BD5C000037ABD9 /* Extension.swift */; };
 		C4BC91BB28B9D8E900BDCD81 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BC91BA28B9D8E900BDCD81 /* AppDelegate.swift */; };
 		C4BC91C428B9D8ED00BDCD81 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4BC91C328B9D8ED00BDCD81 /* Assets.xcassets */; };
 		C4BC91C728B9D8ED00BDCD81 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4BC91C528B9D8ED00BDCD81 /* LaunchScreen.storyboard */; };
@@ -22,6 +23,7 @@
 		C468CAD128BA8B1000867B4E /* RegistrationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationController.swift; sourceTree = "<group>"; };
 		C4814ECE28BB516300912F8B /* InputContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputContainerView.swift; sourceTree = "<group>"; };
 		C4814ED028BB587300912F8B /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		C488050128BD5C000037ABD9 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		C4BC91B728B9D8E900BDCD81 /* FireChat-Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FireChat-Swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4BC91BA28B9D8E900BDCD81 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C4BC91C328B9D8ED00BDCD81 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 		C4BC91CE28B9D94200BDCD81 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				C488050128BD5C000037ABD9 /* Extension.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -209,6 +212,7 @@
 			files = (
 				C4BC91D628B9DA3A00BDCD81 /* ConversationsController.swift in Sources */,
 				C468CACF28BA8AE900867B4E /* LoginController.swift in Sources */,
+				C488050228BD5C000037ABD9 /* Extension.swift in Sources */,
 				C4814ED128BB587300912F8B /* CustomTextField.swift in Sources */,
 				C468CAD228BA8B1000867B4E /* RegistrationController.swift in Sources */,
 				C4BC91BB28B9D8E900BDCD81 /* AppDelegate.swift in Sources */,

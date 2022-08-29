@@ -15,7 +15,7 @@ class LoginController: UIViewController {
         imageView.tintColor = .white
         return imageView
     }()
-    private let stackView = UIStackView()
+    private var stackView = UIStackView()
     
     private lazy var emailContainerView : InputContainerView = {
         let image = #imageLiteral(resourceName: "ic_mail_outline_white_2x")
@@ -28,10 +28,7 @@ class LoginController: UIViewController {
     private let loginButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Log In", for: .normal)
-        button.titleLabel?.font = UIFont.preferredFont(forTextStyle: .title2)
-        button.tintColor = .white
-        button.layer.cornerRadius = 5
-        button.backgroundColor = .systemPink.withAlphaComponent(0.5)
+        button.authButton()
         return button
     }()
     private let emailTextField =  CustomTextField(withPlaceHolder: "Email")
@@ -69,20 +66,12 @@ extension LoginController{
         iconImage.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(iconImage)
         //stackView Style
+        stackView = UIStackView(arrangedSubviews: [emailContainerView,passwordContainerView,loginButton])
         stackView.axis = .vertical
         stackView.spacing = 16
         stackView.distribution = .fillEqually
         stackView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(stackView)
-        //emailcontainer Style
-        emailContainerView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.addArrangedSubview(emailContainerView)
-        //passwordcontainer Style
-        passwordContainerView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.addArrangedSubview(passwordContainerView)
-        //loginButton Style
-        loginButton.translatesAutoresizingMaskIntoConstraints = false
-        stackView.addArrangedSubview(loginButton)
         //dontHaveAccountButton Style
         dontHaveAccountButton.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(dontHaveAccountButton)
@@ -111,13 +100,7 @@ extension LoginController{
         ])
     }
     
-    private func configureGradientLayer(){
-        let gradient = CAGradientLayer()
-        gradient.colors = [UIColor.systemPurple.cgColor, UIColor.systemPink.cgColor]
-        gradient.frame = view.frame
-        gradient.locations = [0,1]
-        view.layer.addSublayer(gradient)
-    }
+    
 }
 // MARK: - Actions,Selectors
 extension LoginController{
