@@ -8,6 +8,7 @@
 import UIKit
 class LoginController: UIViewController {
     // MARK: - Properties
+    private var viewModel = LoginViewModel()
     private let iconImage: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
@@ -28,7 +29,9 @@ class LoginController: UIViewController {
     private let loginButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Log In", for: .normal)
+        button.isEnabled = false
         button.authButton()
+        button.addTarget(self, action: #selector(handleLogin), for: .touchUpInside)
         return button
     }()
     private let emailTextField =  CustomTextField(withPlaceHolder: "Email")
@@ -75,6 +78,9 @@ extension LoginController{
         //dontHaveAccountButton Style
         dontHaveAccountButton.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(dontHaveAccountButton)
+        //emailTextField, passwordTextField Style
+        emailTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
+        passwordTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
     }
     private func layout(){
         //iconImage Layout
@@ -100,6 +106,15 @@ extension LoginController{
         ])
     }
     
+    func checkFormStatus()  {
+        if viewModel.formIsValid{
+            loginButton.isEnabled = true
+            loginButton.backgroundColor = .systemPink
+        }else{
+            loginButton.isEnabled = false
+            loginButton.backgroundColor = .systemPink.withAlphaComponent(0.5)
+        }
+    }
     
 }
 // MARK: - Actions,Selectors
@@ -107,5 +122,16 @@ extension LoginController{
     @objc func handleShowSignUp(){
         let controller = RegistrationController()
         navigationController?.pushViewController(controller, animated: true)
+    }
+    @objc func textDidChange(_ sender: UITextField){
+        if sender == emailTextField {
+            viewModel.email = sender.text
+        }else{
+            viewModel.password = sender.text
+        }
+        checkFormStatus()
+    }
+    @objc func handleLogin(_ sender: UIButton){
+        
     }
 }
