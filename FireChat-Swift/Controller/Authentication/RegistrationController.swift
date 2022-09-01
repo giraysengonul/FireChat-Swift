@@ -111,9 +111,26 @@ extension RegistrationController{
 // MARK: - Actions , Selectors
 extension RegistrationController{
     @objc func handleSelectPhoto(){
-        
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = true
+        present(imagePicker, animated: true, completion: nil)
     }
     @objc func handleShowLogIn(){
         navigationController?.popViewController(animated: true)
+    }
+}
+// MARK: - UIImagePickerControllerDelegate, UINavigationControllerDelegate
+extension RegistrationController : UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[.editedImage] as? UIImage {
+            plusPhotoButton.setImage(image.withRenderingMode(.alwaysOriginal), for: .normal)
+            plusPhotoButton.layer.cornerRadius = 120 / 2
+            plusPhotoButton.layer.borderWidth = 3
+            plusPhotoButton.clipsToBounds = true
+            plusPhotoButton.layer.borderColor = UIColor.white.cgColor
+            plusPhotoButton.contentMode = .scaleAspectFit
+            dismiss(animated: true)
+        }
     }
 }
