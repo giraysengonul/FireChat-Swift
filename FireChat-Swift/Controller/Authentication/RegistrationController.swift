@@ -8,6 +8,7 @@
 import UIKit
 class RegistrationController: UIViewController {
     // MARK: - Properties
+    private var registrationViewModel = RegistrationViewModel()
     private let plusPhotoButton: UIButton = {
         let button = UIButton(type: .system)
         let image = #imageLiteral(resourceName: "plus_photo")
@@ -55,6 +56,7 @@ class RegistrationController: UIViewController {
         let button = UIButton(type: .system)
         button.setTitle("Sign Up", for: .normal)
         button.authButton()
+        button.isEnabled = false
         return button
     }()
     // MARK: - Lifecycle
@@ -63,6 +65,7 @@ class RegistrationController: UIViewController {
         configureGradientLayer()
         style()
         layout()
+        configureNotificationObservers()
     }
 }
 // MARK: - Helpers
@@ -106,6 +109,13 @@ extension RegistrationController{
             view.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: alredyHaveAccountButton.trailingAnchor, constant: 32)
         ])
     }
+    private func configureNotificationObservers(){
+        emailTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
+        passwordTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
+        fullnameTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
+        usernameTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
+        
+    }
 }
 
 // MARK: - Actions , Selectors
@@ -119,6 +129,18 @@ extension RegistrationController{
     @objc func handleShowLogIn(){
         navigationController?.popViewController(animated: true)
     }
+    @objc func textDidChange(_ sender: UITextField){
+        if sender == emailTextField{
+            registrationViewModel.email = sender.text
+        }else if sender == passwordTextField{
+            registrationViewModel.password = sender.text
+        }else if sender == fullnameTextField{
+            registrationViewModel.fullname = sender.text
+        }else{
+            registrationViewModel.username = sender.text
+        }
+        checkFormStatus()
+    }
 }
 // MARK: - UIImagePickerControllerDelegate, UINavigationControllerDelegate
 extension RegistrationController : UIImagePickerControllerDelegate, UINavigationControllerDelegate{
@@ -131,6 +153,19 @@ extension RegistrationController : UIImagePickerControllerDelegate, UINavigation
             plusPhotoButton.layer.borderColor = UIColor.white.cgColor
             plusPhotoButton.contentMode = .scaleAspectFit
             dismiss(animated: true)
+        }
+    }
+}
+// MARK: - AuthenticationControllerProtocol
+extension RegistrationController: AuthenticationControllerProtocol{
+    
+    func checkFormStatus(){
+        if registrationViewModel.formIsValid{
+            singUpButton.isEnabled = true
+            singUpButton.backgroundColor = .systemPink
+        }else{
+            singUpButton.isEnabled = false
+            singUpButton.backgroundColor = .systemPink.withAlphaComponent(0.5)
         }
     }
 }

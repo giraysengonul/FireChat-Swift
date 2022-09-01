@@ -6,6 +6,10 @@
 //
 
 import UIKit
+protocol AuthenticationControllerProtocol {
+    func checkFormStatus()
+}
+
 class LoginController: UIViewController {
     // MARK: - Properties
     private var viewModel = LoginViewModel()
@@ -105,17 +109,6 @@ extension LoginController{
             view.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: dontHaveAccountButton.trailingAnchor, constant: 32)
         ])
     }
-    
-    func checkFormStatus()  {
-        if viewModel.formIsValid{
-            loginButton.isEnabled = true
-            loginButton.backgroundColor = .systemPink
-        }else{
-            loginButton.isEnabled = false
-            loginButton.backgroundColor = .systemPink.withAlphaComponent(0.5)
-        }
-    }
-    
 }
 // MARK: - Actions,Selectors
 extension LoginController{
@@ -133,5 +126,17 @@ extension LoginController{
     }
     @objc func handleLogin(_ sender: UIButton){
         
+    }
+}
+// MARK: - AuthenticationControllerProtocol
+extension LoginController: AuthenticationControllerProtocol{
+    func checkFormStatus()  {
+        if viewModel.formIsValid{
+            loginButton.isEnabled = true
+            loginButton.backgroundColor = .systemPink
+        }else{
+            loginButton.isEnabled = false
+            loginButton.backgroundColor = .systemPink.withAlphaComponent(0.5)
+        }
     }
 }
