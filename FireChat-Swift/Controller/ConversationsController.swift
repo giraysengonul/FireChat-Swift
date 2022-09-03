@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 private let reuseIdentifier = "ConversationCell"
 class ConversationsConroller: UIViewController {
     // MARK: - properties
@@ -15,6 +16,7 @@ class ConversationsConroller: UIViewController {
         super.viewDidLoad()
         style()
         layout()
+        authenticateUser()
     }
 }
 
@@ -55,10 +57,34 @@ extension ConversationsConroller{
         navigationController?.navigationBar.barStyle = .black
     }
 }
+// MARK: - API
+extension ConversationsConroller{
+    func authenticateUser()  {
+        if Auth.auth().currentUser?.uid == nil{
+            presentLoginScreen()
+            return
+        }
+    }
+    func logout(){
+        do{
+            try Auth.auth().signOut()
+        }catch{
+            print("Error signing out.")
+        }
+    }
+    func presentLoginScreen(){
+        DispatchQueue.main.async {
+            let controller = LoginController()
+            let nav = UINavigationController(rootViewController: controller)
+            nav.modalPresentationStyle = .fullScreen
+            self.present(nav, animated: true)
+        }
+    }
+}
 // MARK: - Actions
 extension ConversationsConroller{
     @objc func showProfile(){
-        
+        logout()
     }
 }
 // MARK: - UITableViewDelegate,UITableViewDataSource
