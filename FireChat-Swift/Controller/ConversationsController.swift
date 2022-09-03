@@ -36,7 +36,8 @@ class ConversationsConroller: UIViewController {
 extension ConversationsConroller{
     private func style(){
         view.backgroundColor = .white
-        configureNavigationBar()
+        //navigationbar
+        configureNavigationBar(withTitle: "Messages", prefersLargeTitles: true)
         let image = UIImage(systemName: "person.circle.fill")
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(showProfile))
         //tableView
@@ -63,21 +64,7 @@ extension ConversationsConroller{
             newMessageButton.widthAnchor.constraint(equalToConstant: 56)
         ])
     }
-    private func configureNavigationBar(){
-        let appearance = UINavigationBarAppearance()
-        appearance.configureWithOpaqueBackground()
-        appearance.largeTitleTextAttributes = [.foregroundColor : UIColor.white]
-        appearance.backgroundColor = .systemPurple
-        navigationController?.navigationBar.standardAppearance = appearance
-        navigationController?.navigationBar.compactAppearance = appearance
-        navigationController?.navigationBar.scrollEdgeAppearance = appearance
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.title = "Messages"
-        navigationController?.navigationBar.tintColor = .white
-        navigationController?.navigationBar.isTranslucent = true
-        navigationController?.navigationBar.overrideUserInterfaceStyle = .dark
-        navigationController?.navigationBar.barStyle = .black
-    }
+    
 }
 // MARK: - API
 extension ConversationsConroller{

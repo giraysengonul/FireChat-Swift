@@ -21,6 +21,23 @@ extension UIViewController{
         UIViewController.hud.textLabel.text = text
         show ? UIViewController.hud.show(in: view, animated: true) : UIViewController.hud.dismiss(animated: true)
     }
+    
+    func configureNavigationBar(withTitle title: String, prefersLargeTitles: Bool){
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.largeTitleTextAttributes = [.foregroundColor : UIColor.white]
+        appearance.titleTextAttributes = [.foregroundColor : UIColor.white]
+        appearance.backgroundColor = .systemPurple
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.compactAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        navigationController?.navigationBar.prefersLargeTitles = prefersLargeTitles
+        navigationItem.title = title
+        navigationController?.navigationBar.tintColor = .white
+        navigationController?.navigationBar.isTranslucent = true
+        navigationController?.navigationBar.overrideUserInterfaceStyle = .dark
+        navigationController?.navigationBar.barStyle = .black
+    }
 }
 extension UIButton{
     func authButton(){
