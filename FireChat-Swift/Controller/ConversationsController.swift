@@ -68,6 +68,7 @@ extension ConversationsConroller{
     func logout(){
         do{
             try Auth.auth().signOut()
+            presentLoginScreen()
         }catch{
             print("Error signing out.")
         }

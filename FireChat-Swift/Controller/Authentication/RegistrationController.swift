@@ -179,7 +179,7 @@ extension RegistrationController{
                             print("Failed to uplosf user data with error => \(error.localizedDescription)")
                             return
                         }
-                        print("Did create user.")
+                        self.dismiss(animated: true)
                     }
                 }
             }
