@@ -10,7 +10,19 @@ import FirebaseAuth
 private let reuseIdentifier = "ConversationCell"
 class ConversationsConroller: UIViewController {
     // MARK: - properties
-    let tableView = UITableView()
+    private let tableView = UITableView()
+    private let newMessageButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setImage(UIImage(systemName: "plus"), for: .normal)
+        button.backgroundColor = .systemPurple
+        button.tintColor = .white
+        button.imageView?.translatesAutoresizingMaskIntoConstraints = false
+        button.imageView?.heightAnchor.constraint(equalToConstant: 24).isActive = true
+        button.imageView?.widthAnchor.constraint(equalToConstant: 24).isActive = true
+        button.layer.cornerRadius = 56 / 2
+        button.addTarget(self, action: #selector(showNewMessageController), for: .touchUpInside)
+        return button
+    }()
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,10 +48,20 @@ extension ConversationsConroller{
         tableView.dataSource = self
         tableView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(tableView)
+        //newMessageButton Style
+        newMessageButton.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(newMessageButton)
+        
         
     }
     private func layout(){
-        
+        //newMessageButton Layout
+        NSLayoutConstraint.activate([
+            view.safeAreaLayoutGuide.bottomAnchor.constraint(equalTo: newMessageButton.bottomAnchor, constant: 16),
+            view.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: newMessageButton.trailingAnchor, constant: 24),
+            newMessageButton.heightAnchor.constraint(equalToConstant: 56),
+            newMessageButton.widthAnchor.constraint(equalToConstant: 56)
+        ])
     }
     private func configureNavigationBar(){
         let appearance = UINavigationBarAppearance()
@@ -82,10 +104,18 @@ extension ConversationsConroller{
         }
     }
 }
-// MARK: - Actions
+// MARK: - Actions, Selector
 extension ConversationsConroller{
-    @objc func showProfile(){
+    @objc func showProfile(_ sender: UIBarButtonItem){
         logout()
+    }
+    @objc func showNewMessageController(_ sender:UIButton){
+        DispatchQueue.main.async {
+            let controller = NewMessageController()
+            let nav = UINavigationController(rootViewController: controller)
+            nav.modalPresentationStyle = .fullScreen
+            self.present(nav, animated: true)
+        }
     }
 }
 // MARK: - UITableViewDelegate,UITableViewDataSource
