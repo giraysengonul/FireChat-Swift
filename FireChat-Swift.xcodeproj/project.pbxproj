@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C4403FA528C26FF70004C292 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C4403FA428C26FF70004C292 /* GoogleService-Info.plist */; };
+		C4484AFD28C342FA004EEDC6 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4484AFC28C342FA004EEDC6 /* AuthService.swift */; };
 		C465A8C228C0D910006C4CD6 /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C465A8C128C0D910006C4CD6 /* RegistrationViewModel.swift */; };
 		C468CACF28BA8AE900867B4E /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C468CACE28BA8AE900867B4E /* LoginController.swift */; };
 		C468CAD228BA8B1000867B4E /* RegistrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C468CAD128BA8B1000867B4E /* RegistrationController.swift */; };
@@ -27,6 +28,7 @@
 		1163DB03F9D8DDCE1875F29C /* Pods-FireChat-Swift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FireChat-Swift.release.xcconfig"; path = "Target Support Files/Pods-FireChat-Swift/Pods-FireChat-Swift.release.xcconfig"; sourceTree = "<group>"; };
 		27DC48847E049FC480E4D71F /* Pods_FireChat_Swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FireChat_Swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4403FA428C26FF70004C292 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C4484AFC28C342FA004EEDC6 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		C465A8C128C0D910006C4CD6 /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
 		C468CACE28BA8AE900867B4E /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		C468CAD128BA8B1000867B4E /* RegistrationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationController.swift; sourceTree = "<group>"; };
@@ -68,7 +70,6 @@
 				0CA7221CF44680F049FF4BDB /* Pods-FireChat-Swift.debug.xcconfig */,
 				1163DB03F9D8DDCE1875F29C /* Pods-FireChat-Swift.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -133,6 +134,7 @@
 		C4BC91CF28B9D94E00BDCD81 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				C4484AFC28C342FA004EEDC6 /* AuthService.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -304,6 +306,7 @@
 				C4814ED128BB587300912F8B /* CustomTextField.swift in Sources */,
 				C476FB0728BE75CB002EAF5A /* LoginViewModel.swift in Sources */,
 				C468CAD228BA8B1000867B4E /* RegistrationController.swift in Sources */,
+				C4484AFD28C342FA004EEDC6 /* AuthService.swift in Sources */,
 				C4BC91BB28B9D8E900BDCD81 /* AppDelegate.swift in Sources */,
 				C4814ECF28BB516300912F8B /* InputContainerView.swift in Sources */,
 			);

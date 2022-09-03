@@ -6,13 +6,20 @@
 //
 
 import UIKit
+import JGProgressHUD
 extension UIViewController{
+    static let hud = JGProgressHUD(style: .dark)
     func configureGradientLayer(){
         let gradient = CAGradientLayer()
         gradient.colors = [UIColor.systemPurple.cgColor , UIColor.systemPink.cgColor]
         gradient.locations = [0,1]
         gradient.frame = view.frame
         view.layer.addSublayer(gradient)
+    }
+    func showLoader(_ show: Bool,withText text: String? = "Loading"){
+        view.endEditing(true)
+        UIViewController.hud.textLabel.text = text
+        show ? UIViewController.hud.show(in: view, animated: true) : UIViewController.hud.dismiss(animated: true)
     }
 }
 extension UIButton{

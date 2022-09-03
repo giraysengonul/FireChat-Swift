@@ -119,6 +119,8 @@ extension RegistrationController{
         passwordTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
         fullnameTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
         usernameTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
+        //        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        //        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
     }
 }
@@ -152,37 +154,30 @@ extension RegistrationController{
         guard let fullname = fullnameTextField.text else { return }
         guard let username = usernameTextField.text?.lowercased() else { return }
         guard let profileImage = profileImage else{ return }
-        guard let imageData = profileImage.jpegData(compressionQuality: 0.3) else{ return }
-        let filename = UUID().uuidString
-        let referance = Storage.storage().reference(withPath: "/profile_images/\(filename)")
-        referance.putData(imageData,metadata: nil) { metadata, error in
-            if let error = error{
-                print("Failed to upload image with error => \(error.localizedDescription)")
+        let credentials = RegistrationCredentials(email: email, password: password, fullname: fullname, username: username, profileImage: profileImage)
+        
+        showLoader(true,withText: "Signing You Up")
+        AuthService.shared.createUser(credentials: credentials) { error in
+            if let error = error {
+                print("\(error.localizedDescription)")
+                self.showLoader(false)
                 return
             }
-            referance.downloadURL { url, error in
-                if let error = error {
-                    print("\(error.localizedDescription)")
-                    return
-                }
-                guard let profileImageUrl = url?.absoluteString else{ return }
-                
-                Auth.auth().createUser(withEmail: email, password: password) { result, error in
-                    if let error = error{
-                        print("Failed to create user with error => \(error.localizedDescription)")
-                        return
-                    }
-                    guard let userId = result?.user.uid else { return }
-                    let data = ["email": email, "fullname": fullname, "profileImageUrl": profileImageUrl, "uid": userId, "username": username] as [String: Any]
-                    Firestore.firestore().collection("users").document("\(userId)").setData(data) { error in
-                        if let error = error{
-                            print("Failed to uplosf user data with error => \(error.localizedDescription)")
-                            return
-                        }
-                        self.dismiss(animated: true)
-                    }
-                }
-            }
+            self.showLoader(false)
+            self.dismiss(animated: true)
+        }
+        
+    }
+    @objc func keyboardWillShow(){
+        if view.frame.origin.y == 0{
+            self.view.frame.origin.y -= 88
+            return
+        }
+    }
+    @objc func keyboardWillHide(){
+        if view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+            return
         }
     }
 }
