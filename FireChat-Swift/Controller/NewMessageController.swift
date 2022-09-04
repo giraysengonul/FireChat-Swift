@@ -14,6 +14,7 @@ class NewMessageController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         style()
+        fetchUsers()
         
     }
 }
@@ -28,6 +29,14 @@ extension NewMessageController{
         tableView.rowHeight = 80
     }
 }
+
+// MARK: - API
+extension NewMessageController{
+    private func fetchUsers(){
+        Service.fetchUsers()
+    }
+}
+
 // MARK: - Actions, Selector
 extension NewMessageController{
     @objc func handleDismissal(_ sender: UIBarButtonItem){
