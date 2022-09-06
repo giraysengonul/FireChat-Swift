@@ -99,6 +99,7 @@ extension ConversationsConroller{
     @objc func showNewMessageController(_ sender:UIButton){
         DispatchQueue.main.async {
             let controller = NewMessageController()
+            controller.delegate = self
             let nav = UINavigationController(rootViewController: controller)
             nav.modalPresentationStyle = .fullScreen
             self.present(nav, animated: true)
@@ -122,4 +123,15 @@ extension ConversationsConroller : UITableViewDelegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(indexPath.row)
     }
+}
+// MARK: - NewMessageControllerDelegate
+extension ConversationsConroller: NewMessageControllerDelegate{
+    func controller(_ controller: NewMessageController, wantsTostartChatWidth user: User) {
+        controller.dismiss(animated: true)
+        let chat = ChatController(user: user)
+        chat.modalPresentationStyle = .fullScreen
+        navigationController?.pushViewController(chat, animated: true)
+    }
+    
+    
 }
