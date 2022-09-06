@@ -18,6 +18,7 @@
 		C46E6FDE28C3CF7800F3D052 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46E6FDD28C3CF7800F3D052 /* UserCell.swift */; };
 		C476FB0728BE75CB002EAF5A /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C476FB0628BE75CB002EAF5A /* LoginViewModel.swift */; };
 		C4781B9828C7B0030071C8FD /* ChatController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4781B9728C7B0030071C8FD /* ChatController.swift */; };
+		C4781B9A28C7D57E0071C8FD /* CustomInputAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4781B9928C7D57E0071C8FD /* CustomInputAccessoryView.swift */; };
 		C4814ECF28BB516300912F8B /* InputContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4814ECE28BB516300912F8B /* InputContainerView.swift */; };
 		C4814ED128BB587300912F8B /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4814ED028BB587300912F8B /* CustomTextField.swift */; };
 		C488050228BD5C000037ABD9 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C488050128BD5C000037ABD9 /* Extension.swift */; };
@@ -43,6 +44,7 @@
 		C46E6FDD28C3CF7800F3D052 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		C476FB0628BE75CB002EAF5A /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		C4781B9728C7B0030071C8FD /* ChatController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatController.swift; sourceTree = "<group>"; };
+		C4781B9928C7D57E0071C8FD /* CustomInputAccessoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInputAccessoryView.swift; sourceTree = "<group>"; };
 		C4814ECE28BB516300912F8B /* InputContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputContainerView.swift; sourceTree = "<group>"; };
 		C4814ED028BB587300912F8B /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		C488050128BD5C000037ABD9 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 				C4814ECE28BB516300912F8B /* InputContainerView.swift */,
 				C4814ED028BB587300912F8B /* CustomTextField.swift */,
 				C46E6FDD28C3CF7800F3D052 /* UserCell.swift */,
+				C4781B9928C7D57E0071C8FD /* CustomInputAccessoryView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -325,6 +328,7 @@
 				C4781B9828C7B0030071C8FD /* ChatController.swift in Sources */,
 				C476FB0728BE75CB002EAF5A /* LoginViewModel.swift in Sources */,
 				C468CAD228BA8B1000867B4E /* RegistrationController.swift in Sources */,
+				C4781B9A28C7D57E0071C8FD /* CustomInputAccessoryView.swift in Sources */,
 				C46E6FDE28C3CF7800F3D052 /* UserCell.swift in Sources */,
 				C4484AFD28C342FA004EEDC6 /* AuthService.swift in Sources */,
 				C4BC91BB28B9D8E900BDCD81 /* AppDelegate.swift in Sources */,
