@@ -6,9 +6,13 @@
 //
 
 import UIKit
+protocol CustomInputAccessoryViewDelegate: AnyObject{
+    func inputView(_ inputView: CustomInputAccessoryView, wantsToSende message: String)
+}
 class CustomInputAccessoryView: UIView {
     // MARK: - Properties
-    private let messageInputTextView: UITextView = {
+    weak var delegate: CustomInputAccessoryViewDelegate?
+    let messageInputTextView: UITextView = {
         let textView = UITextView()
         textView.font = UIFont.systemFont(ofSize: 16)
         textView.isScrollEnabled = false
@@ -88,7 +92,8 @@ extension CustomInputAccessoryView{
 // MARK: - Action, Selector
 extension CustomInputAccessoryView{
     @objc func handleSendMessage(_ sender: UIButton){
-        
+        guard let message = messageInputTextView.text else { return }
+        delegate?.inputView(self, wantsToSende: message)
     }
     @objc func handleTextInputChange(){
         placeHolderLabel.isHidden = !self.messageInputTextView.text.isEmpty

@@ -23,6 +23,8 @@
 		C4814ECF28BB516300912F8B /* InputContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4814ECE28BB516300912F8B /* InputContainerView.swift */; };
 		C4814ED128BB587300912F8B /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4814ED028BB587300912F8B /* CustomTextField.swift */; };
 		C488050228BD5C000037ABD9 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C488050128BD5C000037ABD9 /* Extension.swift */; };
+		C494291D28C902FE0003548A /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = C494291C28C902FE0003548A /* Message.swift */; };
+		C494291F28C90BA90003548A /* MessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C494291E28C90BA90003548A /* MessageViewModel.swift */; };
 		C4BC91BB28B9D8E900BDCD81 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BC91BA28B9D8E900BDCD81 /* AppDelegate.swift */; };
 		C4BC91C428B9D8ED00BDCD81 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4BC91C328B9D8ED00BDCD81 /* Assets.xcassets */; };
 		C4BC91C728B9D8ED00BDCD81 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4BC91C528B9D8ED00BDCD81 /* LaunchScreen.storyboard */; };
@@ -50,6 +52,8 @@
 		C4814ECE28BB516300912F8B /* InputContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputContainerView.swift; sourceTree = "<group>"; };
 		C4814ED028BB587300912F8B /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		C488050128BD5C000037ABD9 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		C494291C28C902FE0003548A /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		C494291E28C90BA90003548A /* MessageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewModel.swift; sourceTree = "<group>"; };
 		C4BC91B728B9D8E900BDCD81 /* FireChat-Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FireChat-Swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4BC91BA28B9D8E900BDCD81 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C4BC91C328B9D8ED00BDCD81 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -169,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				C465A8C328C0D91E006C4CD6 /* Authentication */,
+				C494291E28C90BA90003548A /* MessageViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -189,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				C456B98028C46D0500C1A1EF /* User.swift */,
+				C494291C28C902FE0003548A /* Message.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -323,6 +329,7 @@
 				C456B98128C46D0500C1A1EF /* User.swift in Sources */,
 				C456B98328C46DB600C1A1EF /* Service.swift in Sources */,
 				C4BC91D628B9DA3A00BDCD81 /* ConversationsController.swift in Sources */,
+				C494291D28C902FE0003548A /* Message.swift in Sources */,
 				C465A8C228C0D910006C4CD6 /* RegistrationViewModel.swift in Sources */,
 				C468CACF28BA8AE900867B4E /* LoginController.swift in Sources */,
 				C46E6FDC28C3BE2A00F3D052 /* NewMessageController.swift in Sources */,
@@ -332,6 +339,7 @@
 				C476FB0728BE75CB002EAF5A /* LoginViewModel.swift in Sources */,
 				C468CAD228BA8B1000867B4E /* RegistrationController.swift in Sources */,
 				C4781B9A28C7D57E0071C8FD /* CustomInputAccessoryView.swift in Sources */,
+				C494291F28C90BA90003548A /* MessageViewModel.swift in Sources */,
 				C46E6FDE28C3CF7800F3D052 /* UserCell.swift in Sources */,
 				C407362528C8DA7C008942A4 /* MessageCell.swift in Sources */,
 				C4484AFD28C342FA004EEDC6 /* AuthService.swift in Sources */,

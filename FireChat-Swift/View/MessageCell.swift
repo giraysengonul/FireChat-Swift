@@ -8,6 +8,9 @@
 import UIKit
 class MessageCell: UICollectionViewCell {
     // MARK: - Properties
+    var message: Message?{
+        didSet { configure() }
+    }
     private let profileImage: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
@@ -21,7 +24,6 @@ class MessageCell: UICollectionViewCell {
         textView.font = UIFont.systemFont(ofSize: 16)
         textView.isScrollEnabled = false
         textView.isEditable = false
-        textView.text = "Some test message for now.."
         textView.textColor = .white
         return textView
     }()
@@ -77,5 +79,12 @@ extension MessageCell{
             textView.trailingAnchor.constraint(equalTo: bubbleContainer.trailingAnchor, constant: -12),
             textView.bottomAnchor.constraint(equalTo: bubbleContainer.bottomAnchor, constant: -4)
         ])
+    }
+    func configure(){
+        guard let message = message else { return }
+        let viewModel = MessageViewModel(message: message)
+        bubbleContainer.backgroundColor = viewModel.messageBackgroundColor
+        textView.textColor = viewModel.messageTextColor
+        textView.text = message.text
     }
 }
