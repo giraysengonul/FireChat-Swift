@@ -11,6 +11,8 @@ class MessageCell: UICollectionViewCell {
     var message: Message?{
         didSet { configure() }
     }
+    var bubbleLeftAnchor: NSLayoutConstraint!
+    var bubbleRightAnchor: NSLayoutConstraint!
     private let profileImage: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
@@ -67,9 +69,12 @@ extension MessageCell{
             profileImage.widthAnchor.constraint(equalToConstant: 32)
         ])
         //bubbleContainer Layout
+        bubbleLeftAnchor = bubbleContainer.leadingAnchor.constraint(equalTo: profileImage.trailingAnchor, constant: 12)
+        bubbleLeftAnchor.isActive = false
+        bubbleRightAnchor = bubbleContainer.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12)
+        bubbleRightAnchor.isActive = false
         NSLayoutConstraint.activate([
             bubbleContainer.topAnchor.constraint(equalTo: topAnchor),
-            bubbleContainer.leadingAnchor.constraint(equalTo: profileImage.trailingAnchor, constant: 12),
             bubbleContainer.widthAnchor.constraint(lessThanOrEqualToConstant: 250)
         ])
         //textView Layout
@@ -86,5 +91,8 @@ extension MessageCell{
         bubbleContainer.backgroundColor = viewModel.messageBackgroundColor
         textView.textColor = viewModel.messageTextColor
         textView.text = message.text
+        bubbleRightAnchor.isActive = viewModel.rightAnchorActive
+        bubbleLeftAnchor.isActive = viewModel.leftAnchorActive
+        profileImage.isHidden = viewModel.shouldHideProfileImage
     }
 }

@@ -17,7 +17,15 @@ struct MessageViewModel{
     var messageTextColor: UIColor {
         return message.isFroCurrentUser ? .black : .white
     }
-    
+    var rightAnchorActive: Bool{
+        return message.isFroCurrentUser
+    }
+    var leftAnchorActive: Bool{
+        return !message.isFroCurrentUser
+    }
+    var shouldHideProfileImage: Bool{
+        return message.isFroCurrentUser
+    }
     init(message: Message) {
         self.message = message
     }
