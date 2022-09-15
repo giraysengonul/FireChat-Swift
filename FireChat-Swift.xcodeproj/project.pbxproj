@@ -25,6 +25,7 @@
 		C488050228BD5C000037ABD9 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C488050128BD5C000037ABD9 /* Extension.swift */; };
 		C494291D28C902FE0003548A /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = C494291C28C902FE0003548A /* Message.swift */; };
 		C494291F28C90BA90003548A /* MessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C494291E28C90BA90003548A /* MessageViewModel.swift */; };
+		C49B016A28D2D9E300DC72A4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49B016928D2D9E300DC72A4 /* Constants.swift */; };
 		C4BC91BB28B9D8E900BDCD81 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BC91BA28B9D8E900BDCD81 /* AppDelegate.swift */; };
 		C4BC91C428B9D8ED00BDCD81 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4BC91C328B9D8ED00BDCD81 /* Assets.xcassets */; };
 		C4BC91C728B9D8ED00BDCD81 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4BC91C528B9D8ED00BDCD81 /* LaunchScreen.storyboard */; };
@@ -54,6 +55,7 @@
 		C488050128BD5C000037ABD9 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		C494291C28C902FE0003548A /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		C494291E28C90BA90003548A /* MessageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewModel.swift; sourceTree = "<group>"; };
+		C49B016928D2D9E300DC72A4 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C4BC91B728B9D8E900BDCD81 /* FireChat-Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FireChat-Swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4BC91BA28B9D8E900BDCD81 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C4BC91C328B9D8ED00BDCD81 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				C488050128BD5C000037ABD9 /* Extension.swift */,
+				C49B016928D2D9E300DC72A4 /* Constants.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -341,6 +344,7 @@
 				C4781B9A28C7D57E0071C8FD /* CustomInputAccessoryView.swift in Sources */,
 				C494291F28C90BA90003548A /* MessageViewModel.swift in Sources */,
 				C46E6FDE28C3CF7800F3D052 /* UserCell.swift in Sources */,
+				C49B016A28D2D9E300DC72A4 /* Constants.swift in Sources */,
 				C407362528C8DA7C008942A4 /* MessageCell.swift in Sources */,
 				C4484AFD28C342FA004EEDC6 /* AuthService.swift in Sources */,
 				C4BC91BB28B9D8E900BDCD81 /* AppDelegate.swift in Sources */,
