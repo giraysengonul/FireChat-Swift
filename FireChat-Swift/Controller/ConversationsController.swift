@@ -11,7 +11,7 @@ private let reuseIdentifier = "ConversationCell"
 class ConversationsConroller: UIViewController {
     // MARK: - properties
     private let tableView = UITableView()
-    private let newMessageButton: UIButton = {
+    private lazy var newMessageButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(UIImage(systemName: "plus"), for: .normal)
         button.backgroundColor = .systemPurple

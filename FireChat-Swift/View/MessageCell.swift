@@ -94,5 +94,6 @@ extension MessageCell{
         bubbleRightAnchor.isActive = viewModel.rightAnchorActive
         bubbleLeftAnchor.isActive = viewModel.leftAnchorActive
         profileImage.isHidden = viewModel.shouldHideProfileImage
+        profileImage.sd_setImage(with: viewModel.profileImageUrl)
     }
 }

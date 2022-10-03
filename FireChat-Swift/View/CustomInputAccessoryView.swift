@@ -12,7 +12,7 @@ protocol CustomInputAccessoryViewDelegate: AnyObject{
 class CustomInputAccessoryView: UIView {
     // MARK: - Properties
     weak var delegate: CustomInputAccessoryViewDelegate?
-    let messageInputTextView: UITextView = {
+    private lazy var messageInputTextView: UITextView = {
         let textView = UITextView()
         textView.font = UIFont.systemFont(ofSize: 16)
         textView.isScrollEnabled = false
@@ -87,6 +87,10 @@ extension CustomInputAccessoryView{
             placeHolderLabel.leadingAnchor.constraint(equalTo: messageInputTextView.leadingAnchor, constant: 4),
             placeHolderLabel.centerYAnchor.constraint(equalTo: messageInputTextView.centerYAnchor)
         ])
+    }
+    func clearMessageText(){
+        messageInputTextView.text = nil
+        placeHolderLabel.isHidden = false
     }
 }
 // MARK: - Action, Selector

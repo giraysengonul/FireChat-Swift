@@ -28,12 +28,23 @@ class ChatController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         style()
+        fetchMessage()
     }
     override var inputAccessoryView: UIView?{
         get { return customInputView }
     }
     override var canBecomeFirstResponder: Bool{
         return true
+    }
+}
+// MARK: - API
+extension ChatController{
+    func fetchMessage() {
+        Service.fetchMessages(forUser: user) { messages in
+            self.messages = messages
+            self.collectionView.reloadData()
+            
+        }
     }
 }
 // MARK: - Helpers
@@ -53,6 +64,7 @@ extension ChatController{
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! MessageCell
         cell.message = messages[indexPath.row]
+        cell.message?.user = user
         return cell
     }
 }
@@ -71,7 +83,7 @@ extension ChatController: CustomInputAccessoryViewDelegate{
                 print(error.localizedDescription)
                 return
             }
-            inputView.messageInputTextView.text = nil
+            inputView.clearMessageText()
         }
     }
     
