@@ -11,6 +11,7 @@ private let reuseIdentifier = "ConversationCell"
 class ConversationsConroller: UIViewController {
     // MARK: - properties
     private let tableView = UITableView()
+    private var conversations = [Conversation]()
     private lazy var newMessageButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(UIImage(systemName: "plus"), for: .normal)
@@ -29,6 +30,7 @@ class ConversationsConroller: UIViewController {
         style()
         layout()
         authenticateUser()
+        fetchConversations()
     }
 }
 
@@ -68,6 +70,12 @@ extension ConversationsConroller{
 }
 // MARK: - API
 extension ConversationsConroller{
+    func fetchConversations() {
+        Service.fetchConversations { conversations in
+            self.conversations = conversations
+            self.tableView.reloadData()
+        }
+    }
     func authenticateUser()  {
         if Auth.auth().currentUser?.uid == nil{
             presentLoginScreen()
@@ -113,7 +121,7 @@ extension ConversationsConroller : UITableViewDelegate
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return conversations.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath)
