@@ -32,21 +32,24 @@ class ConversationsConroller: UIViewController {
         authenticateUser()
         fetchConversations()
     }
+    override func viewWillAppear(_ animated: Bool) {
+        configureNavigationBar(withTitle: "Messages", prefersLargeTitles: true)
+    }
 }
 
 // MARK: - Helpers
 extension ConversationsConroller{
     private func style(){
         view.backgroundColor = .white
+        
         //navigationbar
-        configureNavigationBar(withTitle: "Messages", prefersLargeTitles: true)
         let image = UIImage(systemName: "person.circle.fill")
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(showProfile))
         //tableView
         tableView.backgroundColor = .white
         tableView.frame = view.frame
         tableView.rowHeight = 80
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: reuseIdentifier)
+        tableView.register(ConversationCell.self, forCellReuseIdentifier: reuseIdentifier)
         tableView.delegate = self
         tableView.dataSource = self
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -66,7 +69,11 @@ extension ConversationsConroller{
             newMessageButton.widthAnchor.constraint(equalToConstant: 56)
         ])
     }
-    
+    private func showChatController(forUser user: User){
+        let chat = ChatController(user: user)
+        chat.modalPresentationStyle = .fullScreen
+        navigationController?.pushViewController(chat, animated: true)
+    }
 }
 // MARK: - API
 extension ConversationsConroller{
@@ -124,21 +131,22 @@ extension ConversationsConroller : UITableViewDelegate
         return conversations.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath)
-        cell.textLabel?.text = "Cell"
+        let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! ConversationCell
+        cell.conversation = conversations[indexPath.row]
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath.row)
+        let user = conversations[indexPath.row].user
+        showChatController(forUser: user)
+        
+        
     }
 }
 // MARK: - NewMessageControllerDelegate
 extension ConversationsConroller: NewMessageControllerDelegate{
     func controller(_ controller: NewMessageController, wantsTostartChatWidth user: User) {
         controller.dismiss(animated: true)
-        let chat = ChatController(user: user)
-        chat.modalPresentationStyle = .fullScreen
-        navigationController?.pushViewController(chat, animated: true)
+        showChatController(forUser: user)
     }
     
     
