@@ -75,6 +75,7 @@ extension MessageCell{
         bubbleRightAnchor.isActive = false
         NSLayoutConstraint.activate([
             bubbleContainer.topAnchor.constraint(equalTo: topAnchor),
+            bubbleContainer.bottomAnchor.constraint(equalTo: bottomAnchor),
             bubbleContainer.widthAnchor.constraint(lessThanOrEqualToConstant: 250)
         ])
         //textView Layout

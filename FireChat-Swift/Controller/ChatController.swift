@@ -43,7 +43,7 @@ extension ChatController{
         Service.fetchMessages(forUser: user) { messages in
             self.messages = messages
             self.collectionView.reloadData()
-            
+            self.collectionView.scrollToItem(at: [0,messages.count - 1], at: .bottom, animated: true)
         }
     }
 }
@@ -54,7 +54,7 @@ extension ChatController{
         configureNavigationBar(withTitle: user.username, prefersLargeTitles: false)
         collectionView.register(MessageCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         collectionView.alwaysBounceVertical = true
-        
+        collectionView.keyboardDismissMode = .interactive
     }
 }
 extension ChatController{
@@ -70,7 +70,13 @@ extension ChatController{
 }
 extension ChatController: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.width, height: 50)
+        let frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 50)
+        let estimatedSizeCell = MessageCell(frame: frame)
+        estimatedSizeCell.message = messages[indexPath.row]
+        estimatedSizeCell.layoutIfNeeded()
+        let target = CGSize(width: view.frame.width, height: 1000)
+        let estimatedSize = estimatedSizeCell.systemLayoutSizeFitting(target)
+        return CGSize(width: view.frame.width, height: estimatedSize.height)
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return .init(top: 16, left: 0, bottom: 16, right: 0)

@@ -13,7 +13,7 @@ class RegistrationController: UIViewController {
     // MARK: - Properties
     private var registrationViewModel = RegistrationViewModel()
     private var profileImage: UIImage?
-    private let plusPhotoButton: UIButton = {
+    private lazy var plusPhotoButton: UIButton = {
         let button = UIButton(type: .system)
         let image = #imageLiteral(resourceName: "plus_photo")
         button.tintColor = .white
@@ -46,7 +46,7 @@ class RegistrationController: UIViewController {
         textField.isSecureTextEntry = true
         return textField
     }()
-    private let alredyHaveAccountButton: UIButton = {
+    private lazy var alredyHaveAccountButton: UIButton = {
         let button = UIButton(type: .system)
         let attributedTitle = NSMutableAttributedString(string: "Alredy have account?", attributes: [.foregroundColor : UIColor.white, .font : UIFont.preferredFont(forTextStyle: .body)])
         attributedTitle.append(NSAttributedString(string: " Log In", attributes: [
@@ -56,7 +56,7 @@ class RegistrationController: UIViewController {
         button.addTarget(self, action: #selector(handleShowLogIn), for: .touchUpInside)
         return button
     }()
-    private let singUpButton: UIButton = {
+    private lazy var singUpButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Sign Up", for: .normal)
         button.authButton()

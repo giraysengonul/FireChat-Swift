@@ -33,7 +33,7 @@ class LoginController: UIViewController {
         let image = #imageLiteral(resourceName: "ic_lock_outline_white_2x")
         return InputContainerView(withImage: image, withTextField: passwordTextField)
     }()
-    private let loginButton: UIButton = {
+    private lazy var loginButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Log In", for: .normal)
         button.isEnabled = false
@@ -47,7 +47,7 @@ class LoginController: UIViewController {
         textField.isSecureTextEntry = true
         return textField
     }()
-    private let dontHaveAccountButton: UIButton = {
+    private lazy var dontHaveAccountButton: UIButton = {
         let button = UIButton(type: .system)
         let attributedTitle = NSMutableAttributedString(string: "Don't have account?", attributes: [.foregroundColor : UIColor.white, .font : UIFont.preferredFont(forTextStyle: .body)])
         attributedTitle.append(NSAttributedString(string: " Sign Up", attributes: [
