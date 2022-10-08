@@ -6,8 +6,15 @@
 //
 
 import UIKit
+protocol ProfileHeaderDelegate: AnyObject{
+    func dismissController()
+}
 class ProfileHeader: UIView {
+    var user: User? {
+        didSet{ populateUserData() }
+    }
     // MARK: - Properties
+    weak var delegate: ProfileHeaderDelegate?
     private let gradient = CAGradientLayer()
     private lazy var dismissButton: UIButton = {
         let button = UIButton(type: .system)
@@ -101,10 +108,17 @@ extension ProfileHeader{
         gradient.locations = [0, 1]
         layer.addSublayer(gradient)
     }
+    private func populateUserData(){
+        guard let user = user else { return }
+        guard let url = URL(string: user.profileImageUrl) else { return }
+        fullnameLabel.text = user.fullname
+        usernameLabel.text = "@" + user.username
+        profileImageView.sd_setImage(with: url)
+    }
 }
 // MARK: - Selectors
 extension ProfileHeader{
     @objc func handleDismissal(_ sender: UIButton){
-        
+        delegate?.dismissController()
     }
 }
