@@ -109,7 +109,7 @@ extension ConversationsConroller{
 // MARK: - Actions, Selector
 extension ConversationsConroller{
     @objc func showProfile(_ sender: UIBarButtonItem){
-        let controller = ProfileController()
+        let controller = ProfileController(style: .insetGrouped)
         let nav = UINavigationController(rootViewController: controller)
         nav.modalPresentationStyle = .fullScreen
         present(nav, animated: true)
