@@ -109,7 +109,10 @@ extension ConversationsConroller{
 // MARK: - Actions, Selector
 extension ConversationsConroller{
     @objc func showProfile(_ sender: UIBarButtonItem){
-        logout()
+        let controller = ProfileController()
+        let nav = UINavigationController(rootViewController: controller)
+        nav.modalPresentationStyle = .fullScreen
+        present(nav, animated: true)
     }
     @objc func showNewMessageController(_ sender:UIButton){
         DispatchQueue.main.async {
