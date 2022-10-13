@@ -149,7 +149,7 @@ extension ConversationsConroller : UITableViewDelegate
 // MARK: - NewMessageControllerDelegate
 extension ConversationsConroller: NewMessageControllerDelegate{
     func controller(_ controller: NewMessageController, wantsTostartChatWidth user: User) {
-        controller.dismiss(animated: true)
+        dismiss(animated: true)
         showChatController(forUser: user)
     }
 }
