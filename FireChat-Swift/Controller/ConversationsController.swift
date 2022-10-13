@@ -110,6 +110,7 @@ extension ConversationsConroller{
 extension ConversationsConroller{
     @objc func showProfile(_ sender: UIBarButtonItem){
         let controller = ProfileController(style: .insetGrouped)
+        controller.delegate = self
         let nav = UINavigationController(rootViewController: controller)
         nav.modalPresentationStyle = .fullScreen
         present(nav, animated: true)
@@ -151,6 +152,9 @@ extension ConversationsConroller: NewMessageControllerDelegate{
         controller.dismiss(animated: true)
         showChatController(forUser: user)
     }
-    
-    
+}
+extension ConversationsConroller: ProfileControllerDelegate{
+    func handleLogout() {
+        logout()
+    }
 }
